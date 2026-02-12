@@ -1,0 +1,81 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+    background-color: #8FBC8F; /* Fű zöld */
+    user-select: none; /* Hogy ne jelölje ki a szöveget kattintáskor */
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.score {
+    background: #fff;
+    color: #d35400;
+    padding: 0 20px;
+    border-radius: 10px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #f1c40f;
+    border: none;
+    border-radius: 5px;
+}
+
+.game {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; /* Fontos: ha sok lyuk lesz, törjön új sorba */
+    gap: 10px;       /* Távolság a lyukak között */
+    justify-content: center;
+}
+
+/* A LYUK (A földkupac) */
+.hole {
+    width: 150px; 
+    height: 150px;
+    position: relative;
+    overflow: hidden; /* Ami kilóg, az nem látszik */
+    
+    /* Földkupac háttér (ha van dirt.png-d, vedd ki a kommentet) */
+    /* background-image: url('dirt.png'); */
+    background-color: #8b4513; 
+    background-size: cover;
+    border-radius: 50%;
+    border: 5px solid rgba(0,0,0,0.1);
+}
+
+/* A VAKOND (A karakter) */
+.mole {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 100%; /* Alapból lent van (elbújva) */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Rugalmas ugrás animáció */
+    cursor:text;
+
+    /* A képet a JS adja hozzá! */
+    background-repeat: no-repeat;
+    background-position: center bottom; /* Alulra igazítjuk, hogy onnan bújjon ki */
+    background-size: 80%; /* Hogy ne lógjon ki teljesen */
+    
+    /* Ha nincs kép, legyen egy alap szín, hogy lásd (fejlesztéshez) */
+    /* Ha már vannak képeid, ezt a sort törölheted: */
+    /* background-color: #333; */
+}
+
+/* Amikor megkapja az 'up' osztályt, felugrik */
+.hole.up .mole {
+    top: 0;
+}
