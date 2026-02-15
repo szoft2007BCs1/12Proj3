@@ -1,5 +1,6 @@
 const gameContainer = document.querySelector('.game');
 const scoreBoard = document.querySelector('.score');
+const startButton = document.getElementById('startButton');
 let holes = []; 
 let lastHole;
 let timeUp = false;
@@ -9,9 +10,9 @@ let moleTimer;
 // --- IDE ÍRD A KÉPEID NEVEIT ---
 // Fontos: A képek legyenek a html fájl mellett.
 const skins = [
-    'viktorba.png',      // Az alap képed
-    'karina.png', // Pl. mérges verzió
-    'adel.png'  // Pl. boldog verzió
+    'img/viktorba.png',      // Az alap képed
+    'img/karina.png', // Pl. mérges verzió
+    'img/adel.png'  // Pl. boldog verzió
     // Ha nincsenek még képeid, tölts le párat, vagy használd ugyanazt többször tesztnek
 ];
 
@@ -75,7 +76,9 @@ function startGame() {
     scoreBoard.textContent = 0;
     score = 0;
     timeUp = false;
-    
+
+    startButton.hidden = true
+
     // Töröljük a pályát és a listát
     gameContainer.innerHTML = '';
     holes = [];
@@ -90,6 +93,7 @@ function startGame() {
     setTimeout(() => {
         timeUp = true;
         alert('Játék vége! Végső pontszám: ' + score);
+        startButton.hidden = false
     }, 20000);
 }
 

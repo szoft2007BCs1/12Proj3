@@ -10,6 +10,7 @@ h1 {
     margin-bottom: 10px;
     color: #fff;
     text-shadow: 2px 2px 0 #000;
+    text-align: center;
 }
 
 .score {
@@ -39,6 +40,11 @@ button {
     flex-wrap: wrap; /* Fontos: ha sok lyuk lesz, törjön új sorba */
     gap: 10px;       /* Távolság a lyukak között */
     justify-content: center;
+}
+
+.menuButtons button{
+    width: 150px;
+    padding: 20px;
 }
 
 /* A LYUK (A földkupac) */
