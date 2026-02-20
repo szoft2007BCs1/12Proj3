@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Mole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="menu.html"><button>Főmenü</button></a>
+    <audio id="menuMusic" src="bg_musics/aranka.mp3" autoplay loop></audio>
+    <h1>Beállítások</h1>
+
+    <div>
+        <input type="range" id="volume" name="volume" min="0" max="10" onchange="volumeChange()"/>
+        <label for="volume">Hangeffektek hangja</label>
+
+        <input type="range" id="musicvolume" name="musicvolume" min="0" max="10" onchange="volumeChange()"/>
+        <label for="musicvolume">Zene hangja</label>
+    </div>
+
+    <script>
+        const volumeInput = document.getElementById('volume');
+        const musicvolumeInput = document.getElementById('musicvolume');
+
+        setValue();
+
+        function setValue(){
+            let volumeValue = localStorage.getItem('volume');
+            let musicvolumeValue = localStorage.getItem('musicvolume');
+
+            if(volumeValue != null) volumeInput.value = volumeValue * 10;
+            if(musicvolumeValue != null)
+            {
+                musicvolumeInput.value = musicvolumeValue * 10;
+                document.getElementById('menuMusic').volume = musicvolumeValue;
+            }
+            else document.getElementById('menuMusic').volume = 0.5;
+
+            console.log(volumeValue)
+            console.log(musicvolumeValue)
+        }
+        
+        function volumeChange(){
+            localStorage.setItem('volume', volumeInput.value / 10)
+            localStorage.setItem('musicvolume', musicvolumeInput.value / 10)
+            setValue();
+        }
+    </script>
+</body>
+</html>

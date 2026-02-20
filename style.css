@@ -1,8 +1,8 @@
 body {
     text-align: center;
     font-family: sans-serif;
-    background-color: #8FBC8F; /* Fű zöld */
-    user-select: none; /* Hogy ne jelölje ki a szöveget kattintáskor */
+    background-color: #8FBC8F; /* Fű zöld */ /* Ezt a sort TÖRÖLD KI vagy kommentezd ki! */
+    user-select: none; 
 }
 
 h1 {
@@ -42,8 +42,12 @@ button {
     justify-content: center;
 }
 
+.menuButtons{
+    margin-top: 15px;
+}
+
 .menuButtons button{
-    width: 150px;
+    width: 200px;
     padding: 20px;
 }
 
@@ -65,11 +69,12 @@ button {
 /* A VAKOND (A karakter) */
 .mole {
     width: 100%;
-    height: 100%;
+    height: 110%;
     position: absolute;
     top: 100%; /* Alapból lent van (elbújva) */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Rugalmas ugrás animáció */
+    transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     cursor:text;
+    
 
     /* A képet a JS adja hozzá! */
     background-repeat: no-repeat;
@@ -79,9 +84,57 @@ button {
     /* Ha nincs kép, legyen egy alap szín, hogy lásd (fejlesztéshez) */
     /* Ha már vannak képeid, ezt a sort törölheted: */
     /* background-color: #333; */
+
+    cursor: inherit; /* <-- EZT ADD HOZZÁ: Örökli az egyedi kurzort a body-tól */
 }
 
 /* Amikor megkapja az 'up' osztályt, felugrik */
 .hole.up .mole {
     top: 0;
+}
+
+/* --- REKLÁM VIDEÓ OVERLAY --- */
+.hidden {
+    display: none !important;
+}
+
+#videoOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95); /* Majdnem teljesen fekete háttér */
+    z-index: 10000; /* Hogy minden más felett legyen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#adVideo {
+    max-width: 90%;
+    max-height: 80%;
+    border: 5px solid #333;
+    border-radius: 10px;
+}
+
+#closeAdBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: sans-serif;
+    z-index: 10001;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+#closeAdBtn:hover {
+    background-color: #c0392b;
 }

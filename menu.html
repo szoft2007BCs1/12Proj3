@@ -7,13 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio id="menuMusic" src="bg_musics/aranka.mp3" autoplay loop></audio>
     <h1>Whack-a-Mole!</h1>
-    <h2>By: Antal Ármin, Németh Miklós, Sári Dávid</h2>
+    <h2>By: CHESS MASTER, KOFFEINFUGGO, TEJESKÁVÉ</h2>
+
+    <h3 id="lastScoreDisplay" style="color: #f1c40f; text-shadow: 2px 2px 0 #000; font-size: 2rem; margin-bottom: 20px;"></h3>
 
     <div class="menuButtons">
-        <a href="index.html"><button>vlami gomb</button></a>
-        <a href="index.html"><button>PLAY</button></a>
-        <a href="index.html"><button>vlami gomb</button></a>
+        <a href="index.html?level=1"><button>1. Pálya (Alap)</button></a>
+        <a href="index.html?level=2"><button>2. Pálya (Új)</button></a>
+        <a href="index.html?level=3"><button>3. Pálya (Extrém)</button></a>
     </div>
+    <div class="menuButtons">
+        <a href="beallitasok.html"><button>Beállítások</button></a>
+    </div>
+
+    <script>
+        // Kiolvassuk a 'lastScore' nevű adatot a localStorage-ból
+        const lastScore = localStorage.getItem('lastScore');
+        const musicVolume = localStorage.getItem('musicvolume');
+        
+        document.getElementById('menuMusic').volume = 0.5;
+
+        // Ha nem 'null' (tehát játszott már legalább egyet a felhasználó)
+        if (lastScore !== null) {
+            // Beírjuk a szöveget az id="lastScoreDisplay" elembe
+            document.getElementById('lastScoreDisplay').innerText = "Legutóbbi pontszámod: " + lastScore;
+        }
+        if (musicVolume != null) document.getElementById('menuMusic').volume = musicVolume;
+    </script>
 </body>
 </html>

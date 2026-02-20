@@ -7,14 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="menu.html"><button>Back</button></a>
-    <h1>Score: <span class="score">0</span></h1>
-    
+    <a href="menu.html"><button>Főmenü</button></a>
+    <audio id="bgMusic" autoplay loop></audio>
+    <h1>Score: <span class="score">0</span> | Bank: <span class="bank">3</span></h1>    
     <div class="controls">
         <button id="startButton" onclick="startGame()">Játék Indítása!</button>
     </div>
 
     <div class="game"></div>
+
+    <div id="videoOverlay" class="hidden">
+        <a href="menu.html" id="closeAdBtn" class="hidden">❌ Reklám bezárása</a>
+        
+        <video id="adVideo"></video>
+    </div>
 
     <script src="script.js"></script>
 </body>
